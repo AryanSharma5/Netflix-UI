@@ -1,0 +1,290 @@
+<MyImage>:
+	size_hint: 1, 1
+
+<MyCustomButton>:
+	elevation : 10
+	size_hint_x: 0.08
+	theme_text_color : 'Custom'
+	text_color : 1, 1, 1, 1
+	md_bg_color : 1, 0, 0, 0.35
+
+Screen:
+	ScreenManager:
+		id : screen_manager
+		Screen:
+			name : 'Home'
+			GridLayout:
+				rows : 2
+				FloatLayout:
+					size_hint_y: 0.08
+					MDIconButton:
+						icon : 'menu'
+						size_hint: (None, None)
+						pos_hint: {'center_x': 0.1, 'center_y' : 0.55}
+					Image:
+						size_hint: (None, None)
+						pos_hint: {'center_x': 0.5, 'center_y' : 0.55}
+						source:
+							'images/netflix_logo.png'
+					MDIconButton:
+						icon : 'magnify'
+						size_hint: (None, None)
+						pos_hint: {'center_x': 0.91, 'center_y' : 0.55}
+				ScrollView:
+					GridLayout:
+						rows : 6
+						spacing : dp(10)
+						rows_minimum: {0 : root.height*0.3, 1 : root.height*0.1, 2 : root.height*0.02, 3 : root.height*0.25, 4 : root.height*0.02, 5 : root.height*0.25}
+						height : self.minimum_height
+						size_hint_y: None
+						ScrollView:
+							bar_inactive_color : 1, 1, 1, 1
+							bar_color: (1, 1, 1, 1)
+							size_hint_y: 0.4
+							GridLayout:
+								id : topMovable
+								rows : 1
+								#spacing : dp(1)
+								col_default_width: root.width*0.8
+								width : self.minimum_width
+								size_hint_x : None
+								MyImage:
+									source:
+										'images/spiderman_home.PNG'
+									on_press:
+										app.change_screen(curr = 'spiderman_edit', ext = '.PNG')
+								MyImage:
+									source:
+										'images/nutcracker_home.PNG'
+									on_press:
+										app.change_screen(curr = 'nutcracker_edit', ext = '.PNG')
+								MyImage:
+									source:
+										'images/toystory_home.PNG'
+									on_press:
+										app.change_screen(curr = 'toystory_edit', ext = '.PNG')
+						ScrollView:
+							bar_inactive_color : 1, 1, 1, 1
+							bar_color: (1, 1, 1, 1)
+							#size_hint_y: 0.05
+							GridLayout:
+								rows : 1
+								spacing: dp(10)
+								pos_hint: {'center_x': 0.1}
+								col_default_width: root.width*0.35
+								width : self.minimum_width
+								size_hint_x: None
+								MyCustomButton:
+									text : 'DISCOVER'
+								MyCustomButton:
+									text : 'CATEGORIES'	
+								MyCustomButton:
+									text : 'SPECIALS'	
+								MyCustomButton:
+									text : 'NEW'	
+						FloatLayout:
+							size_hint_y: 0.08
+							MDLabel:
+								text : 'My list'
+								pos_hint: {'x': 0.0516, 'y' : 0.2}
+							MDIconButton:
+								icon : 'arrow-right'
+								user_font_size : '18sp'
+								pos_hint: {'center_x': 0.91, 'center_y' : 0.7}
+						ScrollView:
+							bar_inactive_color : 1, 1, 1, 1
+							bar_color: (1, 1, 1, 1)
+							size_hint_y: 0.3
+							GridLayout:
+								spacing: dp(0)
+								rows : 1
+								col_default_width: root.width*0.35
+								width : self.minimum_width
+								size_hint_x : None
+								Image:
+									size_hint: (1, 1)
+									source:
+										'images/stranger_things_edit.PNG'
+								Image:
+									size_hint: (1, 1)
+									source:
+										'images/erased_edit.PNG'
+								Image:
+									size_hint: (1, 1)
+									source:
+										'images/oitnb_edit.PNG'
+								Image:
+									size_hint: (1, 1)
+									source:
+										'images/cobra_kai_edit.PNG'
+						FloatLayout:
+							size_hint_y: 0.08
+							MDLabel:
+								text : 'Popular on Netflix'
+								pos_hint: {'x': 0.05, 'y' : 0.1}
+							MDIconButton:
+								icon : 'arrow-right'
+								user_font_size : '18sp'
+								pos_hint: {'center_x': 0.91, 'center_y' : 0.6}
+						ScrollView:
+							bar_inactive_color : 1, 1, 1, 1
+							bar_color: (1, 1, 1, 1)
+							size_hint_y: 0.3
+							GridLayout:
+								rows : 1
+								col_default_width: root.width*0.35
+								width : self.minimum_width
+								size_hint_x : None
+								Image:
+									source:
+										'images/endgame_edit.PNG'
+								Image:
+									source:
+										'images/daredevil_edit.PNG'
+								Image:
+									source:
+										'images/shigatsu_wa_kimi_no_uso_edit.PNG'
+								Image:
+									source:
+										'images/seven_deadly_sins_edit.PNG'
+		Screen:
+			name : 'contentScreen'
+			FloatLayout:
+				Image:
+					id : secondaryImage
+					source : ''
+					pos_hint: {'y' : 0.35}
+				MDIconButton:
+					id : backarrow
+					icon : 'keyboard-backspace'
+					theme_text_color : 'Custom'
+					text_color : (1, 1, 1, 1)
+					pos_hint: {'center_x': 0.1, 'center_y' : 0.95}
+					on_press:
+						app.change_screen(curr = 'contentScreen')
+				MDIconButton:
+					id : heart
+					icon : 'heart-outline'
+					theme_text_color : 'Custom'
+					text_color : 1, 1, 1, 1
+					pos_hint: {'center_x': 0.91, 'center_y' : 0.95}
+					on_press:
+						app.change_icon(name = 'heart', rootOrigin = True)
+				Image:
+					size_hint: (None, None)
+					pos_hint: {'center_x': 0.5, 'center_y' : 0.95}
+					source:
+						'images/netflix_logo.png'
+				MDFloatingActionButton:
+					elevation : dp(10)
+					icon : 'play'
+					md_bg_color : (1, 1, 1, 1)
+					font_size: '15sp'
+					theme_text_color : 'Custom'
+					text_color : (1, 0, 0, 1)
+					pos_hint: {'center_x' : 0.5, 'center_y' : 0.532}
+				MDIconButton:
+					icon : 'plus'
+					pos_hint : {'center_x' : 0.1, 'center_y' : 0.49}
+				MDIconButton:
+					icon : 'share-variant'
+					user_font_size: '18sp'
+					pos_hint : {'center_x' : 0.91, 'center_y' : 0.49}
+				MDLabel:
+					id : title_content
+					text : ''
+					markup: True
+					font_size : '12sp'
+				Image:	
+					source : 'images/yellow_star.png'
+					size_hint: (0.04, 0.04)
+					pos_hint : {'center_x' : 0.38, 'center_y' : 0.37}
+				Image:	
+					source : 'images/yellow_star.png'
+					size_hint: (0.04, 0.04)
+					pos_hint : {'center_x' : 0.44, 'center_y' : 0.37}
+				Image:	
+					source : 'images/yellow_star.png'
+					size_hint: (0.04, 0.04)
+					pos_hint : {'center_x' : 0.50, 'center_y' : 0.37}
+				Image:	
+					source : 'images/yellow_star.png'
+					size_hint: (0.04, 0.04)
+					pos_hint : {'center_x' : 0.56, 'center_y' : 0.37}
+				Image:	
+					source : 'images/black_star.PNG'
+					size_hint: (0.04, 0.04)
+					pos_hint : {'center_x' : 0.62, 'center_y' : 0.37}
+				GridLayout:
+					rows : 2
+					size_hint : (0.6, 0.01)
+					pos_hint : {'center_x' : 0.55, 'center_y' : 0.34}
+					rows_minimum: {0 : root.height*0.02, 1 : root.height*0.03}
+					GridLayout:
+						cols : 3
+						col_default_width: root.width*0.05
+						MDLabel:
+							text : 'Year'
+							font_size: '8sp'
+						MDLabel:
+							text : 'Country'
+							font_size: '8sp'
+						MDLabel:
+							text : 'Length'
+							font_size: '8sp'
+					GridLayout:
+						cols : 3
+						col_default_width: root.width*0.05
+						MDLabel:
+							id : year
+							text : ''
+							markup : True
+							font_size: '9sp'
+						MDLabel:
+							id : country
+							text : ''
+							markup : True
+							font_size: '9sp'
+						MDLabel:
+							id : length
+							text : ''
+							markup : True
+							font_size: '9sp'
+				ScrollView:
+					size_hint_y: 0.1
+					pos_hint : {'x' : 0.08, 'center_y' : 0.238}
+					GridLayout:
+						rows : 1
+						size_hint_y: None
+						size_hint_x: 0.8
+						height : self.minimum_height
+						rows_minimum: {0 : root.height*0.2}
+						MDLabel:
+							id : description
+							text : ''
+							size_hint_y: 0.5
+							font_size: '8sp'
+				MDLabel:
+					text : '[b]Screenshots[/b]'
+					pos_hint: {'x': 0.08, 'center_y' : 0.16}
+					font_size: '11sp'
+					markup : True
+				MDIconButton:
+					icon : 'arrow-right'
+					user_font_size : '18sp'
+					pos_hint: {'center_x': 0.91, 'center_y' : 0.16}
+				ScrollView:
+					size_hint: (1, 0.15)
+					GridLayout:
+						rows : 1
+						rows_minimum: {0 : root.height*0.08}
+						spacing : dp(10)
+						col_default_width: root.width*0.32
+						width : self.minimum_width
+						size_hint_x : None
+						Image:
+							id : src_1
+						Image:
+							id : src_2
+						Image:
+							id : src_3
