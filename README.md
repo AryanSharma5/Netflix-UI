@@ -1,5 +1,5 @@
 <img src = 'https://github.com/AryanSharma5/Netflix-UI-Redesigned/blob/master/Netflix%20ui/images/netflix_logo.png' height = 250 width = 800></img>
-# Netflix-UI-Redesigned
+# Netflix-UI
 
 ### Requirements : 
 Python : <a href = 'https://www.python.org/downloads/'>link</a><br>
